@@ -1,25 +1,22 @@
 "use client";
 
 import theme from "@/theme";
-import { ArrowBackOutlined, ArrowForwardOutlined } from "@mui/icons-material";
-import { Box, Button, ThemeProvider } from "@mui/material";
+import { ArrowBackOutlined, ArrowForwardOutlined, HelpOutlineOutlined, MusicNoteOutlined } from "@mui/icons-material";
+import { Box } from "@mui/material";
 import { Merriweather } from "next/font/google";
 import { useRouter } from "next/navigation";
+import NavigationFooterButton from "./NavigationFooterButton";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["latin"] });
 
 export default function NavigationFooter() {
 	const router = useRouter();
 	return (
-		<ThemeProvider theme={theme}>
-			<Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-				<Button color="white" className={merriweather.className} variant="outlined" startIcon={<ArrowBackOutlined />}>
-					Previous
-				</Button>
-				<Button color="white" className={merriweather.className} variant="outlined" endIcon={<ArrowForwardOutlined />}>
-					Next
-				</Button>
-			</Box>
-		</ThemeProvider>
+		<Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+			<NavigationFooterButton onPress={() => {}} text="Previous" startIcon={<ArrowBackOutlined />} />
+			<NavigationFooterButton onPress={() => {}} text="Music Player" startIcon={<MusicNoteOutlined />} />
+			<NavigationFooterButton onPress={() => {}} text="Help/About" endIcon={<HelpOutlineOutlined />} />
+			<NavigationFooterButton onPress={() => {}} text="Next" endIcon={<ArrowForwardOutlined />} />
+		</Box>
 	);
 }
