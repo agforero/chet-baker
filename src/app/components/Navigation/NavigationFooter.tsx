@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import NavigationButton from "./NavigationButton";
 import React from "react";
 import reportText from "@/app/data/reportText";
+import { handleNext, handlePrevious } from "./handleNavigation";
 
 export default function NavigationFooter() {
 	const router = useRouter();
@@ -33,39 +34,11 @@ export default function NavigationFooter() {
 		);
 	}, [section, subSection]);
 
-	// this and handleNext() are going to trust that <ReportTextBody/> will
-	// correctly set the searchparams
-	const handlePrevious = () => {
-		if (section === 0 && subSection === 0) {
-			return;
-		} else if (subSection === 0) {
-			const prevSectionIdx = section - 1;
-			const prevSubSectionIdx = reportText[prevSectionIdx].subSections.length - 1;
-			router.push(`/?section=${prevSectionIdx}&subSection=${prevSubSectionIdx}`);
-		} else {
-			const prevSubSectionIdx = subSection - 1;
-			router.push(`/?section=${section}&subSection=${prevSubSectionIdx}`);
-		}
-	};
-
-	const handleNext = () => {
-		if (section === reportText.length - 1 && subSection === reportText.slice(-1)[0].subSections.length - 1) {
-			return;
-		} else if (subSection === reportText[section].subSections.length - 1) {
-			const nextSectionIdx = section + 1;
-			const nextSubSectionIdx = 0;
-			router.push(`/?section=${nextSectionIdx}&subSection=${nextSubSectionIdx}`);
-		} else {
-			const nextSubSectionIdx = subSection + 1;
-			router.push(`/?section=${section}&subSection=${nextSubSectionIdx}`);
-		}
-	};
-
 	return (
 		<Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
 			<NavigationButton
 				text="Previous"
-				onPress={() => handlePrevious()}
+				onPress={() => handlePrevious(section, subSection, router)}
 				disabled={previousDisabled}
 				tooltipContent={"Navigate to the previous sub-section."}
 				tooltipPlacement="top"
@@ -73,7 +46,7 @@ export default function NavigationFooter() {
 			/>
 			<NavigationButton
 				text="Next"
-				onPress={() => handleNext()}
+				onPress={() => handleNext(section, subSection, router)}
 				disabled={nextDisabled}
 				tooltipContent={"Navigate to the next sub-section."}
 				tooltipPlacement="top"
