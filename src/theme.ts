@@ -27,4 +27,23 @@ const theme = createTheme({
 	},
 });
 
+theme.components = {
+	MuiTooltip: {
+		styleOverrides: {
+			tooltip: {
+				fontSize: "14px",
+				textAlign: "center",
+				backgroundColor: "transparent",
+				border: "1px solid white",
+			},
+			arrow: {
+				"&:before": {
+					backgroundColor: "white",
+					border: "1px solid white",
+				},
+			},
+		},
+	},
+};
+
 export default theme;

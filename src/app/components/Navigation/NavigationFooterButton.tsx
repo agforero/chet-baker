@@ -1,5 +1,5 @@
 import theme from "@/theme";
-import { Button, ThemeProvider } from "@mui/material";
+import { Button, Fade, ThemeProvider, Tooltip } from "@mui/material";
 import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["latin"] });
@@ -9,22 +9,35 @@ interface NavigationFooterButtonProps {
 	onPress: Function;
 	startIcon?: any;
 	endIcon?: any;
+	tooltipContent: string | React.ReactElement;
+	tooltipOpen?: boolean;
 }
 
 export default function NavigationFooterButton(props: NavigationFooterButtonProps) {
 	return (
 		<ThemeProvider theme={theme}>
-			<Button
-				color="white"
-				className={merriweather.className}
-				variant="outlined"
-				startIcon={props.startIcon ? props.startIcon : undefined}
-				endIcon={props.endIcon ? props.endIcon : undefined}
-				onClick={() => props.onPress()}
-				onTouchStart={() => props.onPress()}
+			<Tooltip
+				title={props.tooltipContent}
+				open={props.tooltipOpen}
+				sx={{ fontSize: "24px" }}
+				TransitionComponent={Fade}
+				TransitionProps={{ timeout: 300 }}
+				enterDelay={500}
+				arrow
 			>
-				{props.text}
-			</Button>
+				<Button
+					color="white"
+					className={merriweather.className}
+					variant="outlined"
+					startIcon={props.startIcon ? props.startIcon : undefined}
+					endIcon={props.endIcon ? props.endIcon : undefined}
+					onClick={() => props.onPress()}
+					onTouchStart={() => props.onPress()}
+					sx={{ fontSize: "unset" }}
+				>
+					{props.text}
+				</Button>
+			</Tooltip>
 		</ThemeProvider>
 	);
 }
