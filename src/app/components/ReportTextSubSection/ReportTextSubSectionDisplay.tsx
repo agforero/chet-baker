@@ -9,9 +9,9 @@ interface ReportTextSubSectionDisplayProps {
 
 export default function ReportTextSubSectionDisplay(props: ReportTextSubSectionDisplayProps) {
 	return !!props.subSection ? (
-		<Typography sx={{ fontFamily: "inherit" }}>
+		<span style={{ fontFamily: "inherit" }}>
 			<Markdown>{props.subSection.text}</Markdown>
-		</Typography>
+		</span>
 	) : (
 		<React.Fragment />
 	);

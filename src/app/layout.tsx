@@ -3,6 +3,7 @@ import { Merriweather } from "next/font/google";
 import "./globals.css";
 import { Box, Container } from "@mui/material";
 import NavigationFooter from "./components/Navigation/NavigationFooter";
+import NavigationHeader from "./components/Navigation/NavigationHeader";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["latin"] });
 
@@ -32,6 +33,9 @@ export default function RootLayout({
 					backgroundPosition: "center",
 				}}
 			>
+				<Box sx={{ flex: "0 0 auto", p: 1 }}>
+					<NavigationHeader />
+				</Box>
 				<Container maxWidth="lg" sx={{ flex: "1 1 100%", height: "100%", width: "100%", overflowY: "hidden" }}>
 					{children}
 				</Container>
