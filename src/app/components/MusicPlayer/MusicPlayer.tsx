@@ -57,9 +57,15 @@ export default function MusicPlayer() {
 	}, [wavesurferLoading]);
 
 	const [playing, setPlaying] = React.useState<boolean>(false);
-	const handlePlayPause = React.useCallback(() => {
+
+	const handlePlay = React.useCallback(() => {
 		setPlaying(!playing);
-		wavesurfer && wavesurfer.playPause();
+		wavesurfer && wavesurfer.play();
+	}, [wavesurfer]);
+
+	const handlePause = React.useCallback(() => {
+		setPlaying(!playing);
+		wavesurfer && wavesurfer.pause();
 	}, [wavesurfer]);
 
 	const handleSongBack = () => {
@@ -86,12 +92,11 @@ export default function MusicPlayer() {
 							}}
 						/>
 					</IconButton>
-					<IconButton sx={{ p: 0 }} onClick={() => handlePlayPause()}>
-						{playing ? (
-							<PauseOutlined sx={{ color: theme.palette.amber.main, fontSize: "20px" }} />
-						) : (
-							<PlayArrowOutlined sx={{ color: theme.palette.amber.main, fontSize: "20px" }} />
-						)}
+					<IconButton sx={{ p: 0 }} onClick={() => handlePlay()}>
+						<PlayArrowOutlined sx={{ color: theme.palette.amber.main, fontSize: "20px" }} />
+					</IconButton>
+					<IconButton sx={{ p: 0 }} onClick={() => handlePause()}>
+						<PauseOutlined sx={{ color: theme.palette.amber.main, fontSize: "20px" }} />
 					</IconButton>
 					<IconButton sx={{ p: 0 }} onClick={() => handleSongForward()}>
 						<SkipNextOutlined

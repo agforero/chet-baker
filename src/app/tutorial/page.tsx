@@ -1,12 +1,33 @@
 "use client";
 
 import theme from "@/app/theme";
-import { Box, Button, Container, Step, StepContent, StepLabel, Stepper, Typography } from "@mui/material";
+import {
+	Box,
+	Button,
+	Container,
+	List,
+	ListItem,
+	ListItemAvatar,
+	ListItemText,
+	Step,
+	StepContent,
+	StepLabel,
+	Stepper,
+	Typography,
+} from "@mui/material";
 import React from "react";
 import NavigationButton from "../components/Navigation/NavigationButton";
-import { ArrowBackOutlined, ArrowForwardOutlined, HelpOutlineOutlined, MusicNoteOutlined } from "@mui/icons-material";
+import {
+	ArrowBackOutlined,
+	ArrowForwardOutlined,
+	HelpOutlineOutlined,
+	PauseOutlined,
+	PlayArrowOutlined,
+	SkipNextOutlined,
+	SkipPreviousOutlined,
+} from "@mui/icons-material";
 import Link from "next/link";
-import MusicPlayer from "../components/MusicPlayer/MusicPlayer";
+import MusicPlayerDummy from "../components/MusicPlayer/MusicPlayerDummy";
 
 export default function Tutorial() {
 	const [step, setStep] = React.useState<number>(0);
@@ -25,35 +46,17 @@ export default function Tutorial() {
 			<Box sx={{ flex: "0 0 auto" }}>
 				{step < 2 ? (
 					<Box sx={{ display: "flex", flexDirection: "row-reverse", p: 1 }}>
-						<NavigationButton
-							text="About"
-							disabled
-							onPress={() => {}}
-							tooltipContent={""}
-							tooltipPlacement="top"
-							endIcon={<HelpOutlineOutlined />}
-						/>
+						<NavigationButton text="About" disabled onPress={() => {}} endIcon={<HelpOutlineOutlined />} />
 					</Box>
 				) : step === 2 ? (
 					<Box sx={{ display: "flex", flexDirection: "row-reverse", p: 1 }}>
-						<NavigationButton
-							text="About"
-							onPress={() => {}}
-							tooltipContent={""}
-							tooltipPlacement="top"
-							endIcon={<HelpOutlineOutlined />}
-						/>
+						<MusicPlayerDummy color="black" />
+						<NavigationButton text="About" onPress={() => {}} endIcon={<HelpOutlineOutlined />} />
 					</Box>
 				) : step === 3 ? (
 					<Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
-						<MusicPlayer />
-						<NavigationButton
-							text="About"
-							onPress={() => {}}
-							tooltipContent={""}
-							tooltipPlacement="top"
-							endIcon={<HelpOutlineOutlined />}
-						/>
+						<MusicPlayerDummy color={theme.palette.amber.main} />
+						<NavigationButton text="About" onPress={() => {}} endIcon={<HelpOutlineOutlined />} />
 					</Box>
 				) : (
 					<React.Fragment />
@@ -217,8 +220,34 @@ export default function Tutorial() {
 											Music Player
 										</Typography>
 										<Typography sx={{ display: "inline-block" }}>
-											&nbsp;in the top-right hand corner of the screen.
+											&nbsp;in the top-left corner of the screen.
 										</Typography>
+										<List>
+											<ListItem>
+												<ListItemAvatar>
+													<SkipNextOutlined sx={{ color: theme.palette.amber.main }} />
+												</ListItemAvatar>
+												<ListItemText>Goes to the previous song,</ListItemText>
+											</ListItem>
+											<ListItem>
+												<ListItemAvatar>
+													<PauseOutlined sx={{ color: theme.palette.amber.main }} />
+												</ListItemAvatar>
+												<ListItemText>pauses the song,</ListItemText>
+											</ListItem>
+											<ListItem>
+												<ListItemAvatar>
+													<PlayArrowOutlined sx={{ color: theme.palette.amber.main }} />
+												</ListItemAvatar>
+												<ListItemText>plays the song, and</ListItemText>
+											</ListItem>
+											<ListItem>
+												<ListItemAvatar>
+													<SkipNextOutlined sx={{ color: theme.palette.amber.main }} />
+												</ListItemAvatar>
+												<ListItemText>skips to the next song.</ListItemText>
+											</ListItem>
+										</List>
 									</span>
 									<Box sx={{ display: "flex", width: "100%" }} gap={1}>
 										<Button
@@ -249,22 +278,8 @@ export default function Tutorial() {
 				</Container>
 			</Box>
 			<Box sx={{ flex: "0 0 auto", display: "flex", justifyContent: "space-between", p: 1 }}>
-				<NavigationButton
-					text="Previous"
-					onPress={() => {}}
-					disabled={step < 1}
-					tooltipContent={""}
-					tooltipPlacement="top"
-					startIcon={<ArrowBackOutlined />}
-				/>
-				<NavigationButton
-					text="Next"
-					onPress={() => {}}
-					disabled={step < 1}
-					tooltipContent={""}
-					tooltipPlacement="top"
-					endIcon={<ArrowForwardOutlined />}
-				/>
+				<NavigationButton text="Previous" onPress={() => {}} disabled={step < 1} startIcon={<ArrowBackOutlined />} />
+				<NavigationButton text="Next" onPress={() => {}} disabled={step < 1} endIcon={<ArrowForwardOutlined />} />
 			</Box>
 		</Box>
 	);
