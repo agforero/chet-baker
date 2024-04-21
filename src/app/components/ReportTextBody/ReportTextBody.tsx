@@ -51,11 +51,11 @@ export default function ReportTextBody() {
 
 		setSection(normalizedSection);
 		setSubSection(normalizedSubSection);
-	}, [searchParams]);
+	}, [searchParams]); // eslint-disable-line
 
 	return (
 		<Box sx={{ width: "100%", overflowY: "auto" }}>
-			<ReportTextSubSectionDisplay subSection={getSubSection(section, subSection)} />
+			<ReportTextSubSectionDisplay subSection={getSubSection(section, subSection)} idx={subSection} />
 		</Box>
 	);
 }

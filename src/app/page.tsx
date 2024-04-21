@@ -31,7 +31,7 @@ export default function Home() {
 				}
 			}
 		});
-	}, [section, subSection]);
+	}, [section, subSection]); // eslint-disable-line
 
 	return (
 		<Box
