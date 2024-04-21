@@ -14,6 +14,7 @@ export interface ReportTextSectionState {
 	title: string;
 	subSections: Array<ReportTextSubSectionState>;
 	song: string;
+	songName: string;
 }
 
 type ReportTextState = Array<ReportTextSectionState>;

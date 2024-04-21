@@ -4,6 +4,7 @@ const reportText: ReportTextState = [
 	{
 		title: "Introduction",
 		song: "my-funny-valentine.mp3",
+		songName: "My Funny Valentine",
 		subSections: [
 			{
 				text: "# I. Introduction",
