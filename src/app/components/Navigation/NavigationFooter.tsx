@@ -41,7 +41,7 @@ export default function NavigationFooter() {
 					text="Previous"
 					onPress={() => handlePrevious(section, subSection, router)}
 					disabled={previousDisabled}
-					tooltipContent={"Navigate to the previous sub-section."}
+					tooltipContent={""}
 					tooltipPlacement="top"
 					startIcon={<ArrowBackOutlined />}
 				/>
@@ -49,7 +49,7 @@ export default function NavigationFooter() {
 					text="Next"
 					onPress={() => handleNext(section, subSection, router)}
 					disabled={nextDisabled}
-					tooltipContent={"Navigate to the next sub-section."}
+					tooltipContent={""}
 					tooltipPlacement="top"
 					endIcon={<ArrowForwardOutlined />}
 				/>

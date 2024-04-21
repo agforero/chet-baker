@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Merriweather } from "next/font/google";
 import "./globals.css";
 import { Box, Container } from "@mui/material";
 import NavigationFooter from "./components/Navigation/NavigationFooter";
 import NavigationHeader from "./components/Navigation/NavigationHeader";
 import { Suspense } from "react";
-
-const merriweather = Merriweather({ weight: "300", subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Chet Baker's Fame and Impact",
@@ -21,7 +18,6 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={merriweather.className}
 				style={{
 					display: "flex",
 					flexDirection: "column",
@@ -32,6 +28,7 @@ export default function RootLayout({
 					backgroundRepeat: "no-repeat",
 					backgroundAttachment: "fixed",
 					backgroundPosition: "center",
+					margin: "0px",
 				}}
 			>
 				<Suspense>

@@ -1,8 +1,5 @@
 import theme from "@/theme";
 import { Box, Button, Fade, ThemeProvider, Tooltip } from "@mui/material";
-import { Merriweather } from "next/font/google";
-
-const merriweather = Merriweather({ weight: "300", subsets: ["latin"] });
 
 interface NavigationButtonProps {
 	text: string;
@@ -30,7 +27,6 @@ export default function NavigationButton(props: NavigationButtonProps) {
 				<span>
 					<Button
 						color="white"
-						className={merriweather.className}
 						variant="outlined"
 						startIcon={props.startIcon ? props.startIcon : undefined}
 						endIcon={props.endIcon ? props.endIcon : undefined}
