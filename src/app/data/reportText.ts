@@ -8,7 +8,7 @@ const reportText: ReportTextState = [
 			{
 				text: `# Chet Baker's Fame and Impact
 
-_a project by Maximos Forero_`,
+_A project by Maximos Forero_`,
 				hideSectionTitle: true,
 			},
 			{
