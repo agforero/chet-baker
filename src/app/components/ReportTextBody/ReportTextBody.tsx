@@ -2,7 +2,7 @@ import reportText from "@/app/data/reportText";
 import { ReportTextSubSectionState } from "@/app/data/reportTextInterface";
 import { Box, Typography } from "@mui/material";
 import { useSearchParams, useRouter } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 import ReportTextSubSectionDisplay from "../ReportTextSubSection/ReportTextSubSectionDisplay";
 
 function getSubSection(section?: number, subSection?: number): ReportTextSubSectionState | undefined {
@@ -54,8 +54,10 @@ export default function ReportTextBody() {
 	}, [searchParams]); // eslint-disable-line
 
 	return (
-		<Box sx={{ width: "100%", overflowY: "auto" }}>
-			<ReportTextSubSectionDisplay subSection={getSubSection(section, subSection)} idx={subSection} />
-		</Box>
+		<Suspense>
+			<Box sx={{ width: "100%", overflowY: "auto" }}>
+				<ReportTextSubSectionDisplay subSection={getSubSection(section, subSection)} idx={subSection} />
+			</Box>
+		</Suspense>
 	);
 }

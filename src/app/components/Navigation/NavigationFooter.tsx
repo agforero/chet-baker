@@ -4,7 +4,7 @@ import { ArrowBackOutlined, ArrowForwardOutlined } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
 import NavigationButton from "./NavigationButton";
-import React from "react";
+import React, { Suspense } from "react";
 import reportText from "@/app/data/reportText";
 import { handleNext, handlePrevious } from "./handleNavigation";
 
@@ -35,23 +35,25 @@ export default function NavigationFooter() {
 	}, [section, subSection]);
 
 	return (
-		<Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-			<NavigationButton
-				text="Previous"
-				onPress={() => handlePrevious(section, subSection, router)}
-				disabled={previousDisabled}
-				tooltipContent={"Navigate to the previous sub-section."}
-				tooltipPlacement="top"
-				startIcon={<ArrowBackOutlined />}
-			/>
-			<NavigationButton
-				text="Next"
-				onPress={() => handleNext(section, subSection, router)}
-				disabled={nextDisabled}
-				tooltipContent={"Navigate to the next sub-section."}
-				tooltipPlacement="top"
-				endIcon={<ArrowForwardOutlined />}
-			/>
-		</Box>
+		<Suspense>
+			<Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+				<NavigationButton
+					text="Previous"
+					onPress={() => handlePrevious(section, subSection, router)}
+					disabled={previousDisabled}
+					tooltipContent={"Navigate to the previous sub-section."}
+					tooltipPlacement="top"
+					startIcon={<ArrowBackOutlined />}
+				/>
+				<NavigationButton
+					text="Next"
+					onPress={() => handleNext(section, subSection, router)}
+					disabled={nextDisabled}
+					tooltipContent={"Navigate to the next sub-section."}
+					tooltipPlacement="top"
+					endIcon={<ArrowForwardOutlined />}
+				/>
+			</Box>
+		</Suspense>
 	);
 }

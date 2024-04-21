@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Input } from "@mui/material";
+import { Box } from "@mui/material";
 import ReportTextBody from "./components/ReportTextBody/ReportTextBody";
 import { useSearchParams, useRouter } from "next/navigation";
 import React, { Suspense } from "react";
