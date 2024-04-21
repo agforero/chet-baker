@@ -13,7 +13,7 @@ interface TextAndImageProps {
 export default function TextAndImage(props: TextAndImageProps) {
 	return (
 		<Box sx={{ display: "flex", flexDirection: props.idx % 2 ? "row" : "row-reverse" }} gap={4}>
-			<Box sx={{ flex: "0 0 auto", display: "flex", flexDirection: "column" }} gap={1}>
+			<Box sx={{ flex: "0 0 auto", display: "flex", flexDirection: "column", justifyContent: "center" }} gap={1}>
 				<LazyLoad threshold={0.95}>
 					<img
 						style={{ height: "auto", width: "400px", border: "5px solid white" }}
