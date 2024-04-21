@@ -4,6 +4,7 @@ import { Box, Button, Fade, ThemeProvider, Tooltip } from "@mui/material";
 interface NavigationButtonProps {
 	text: string;
 	onPress: Function;
+	amber?: boolean;
 	disabled?: boolean;
 	startIcon?: any;
 	endIcon?: any;
@@ -16,6 +17,9 @@ export default function NavigationButton(props: NavigationButtonProps) {
 	return (
 		<ThemeProvider theme={theme}>
 			<Tooltip
+				componentsProps={
+					props.amber ? { tooltip: { className: "amberTooltip" }, arrow: { className: "amberTooltip" } } : undefined
+				}
 				title={!props.disabled ? props.tooltipContent : ""}
 				open={props.tooltipOpen}
 				sx={{ fontSize: "24px" }}
@@ -26,7 +30,7 @@ export default function NavigationButton(props: NavigationButtonProps) {
 			>
 				<span>
 					<Button
-						color="white"
+						color={!props.amber ? "white" : "amber"}
 						variant="outlined"
 						startIcon={props.startIcon ? props.startIcon : undefined}
 						endIcon={props.endIcon ? props.endIcon : undefined}

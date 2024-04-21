@@ -19,8 +19,6 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				style={{
-					display: "flex",
-					flexDirection: "column",
 					height: "100vh",
 					width: "100vw",
 					overflowY: "hidden",
@@ -32,15 +30,10 @@ export default function RootLayout({
 				}}
 			>
 				<Suspense>
-					<Box sx={{ flex: "0 0 auto", p: 1 }}>
+					{/* <Box sx={{ flex: "0 0 auto", p: 1 }}>
 						<NavigationHeader />
-					</Box>
-					<Container maxWidth="lg" sx={{ flex: "1 1 100%", height: "100%", width: "100%", overflowY: "hidden" }}>
-						{children}
-					</Container>
-					<Box sx={{ flex: "0 0 auto", p: 1 }}>
-						<NavigationFooter />
-					</Box>
+					</Box> */}
+					{children}
 				</Suspense>
 			</body>
 		</html>

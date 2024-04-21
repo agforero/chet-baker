@@ -1,9 +1,11 @@
 import reportText from "@/app/data/reportText";
 import { ReportTextSubSectionState } from "@/app/data/reportTextInterface";
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { useSearchParams, useRouter } from "next/navigation";
 import React, { Suspense } from "react";
 import ReportTextSubSectionDisplay from "../ReportTextSubSection/ReportTextSubSectionDisplay";
+import NavigationHeader from "../Navigation/NavigationHeader";
+import NavigationFooter from "../Navigation/NavigationFooter";
 
 function getSubSection(section?: number, subSection?: number): ReportTextSubSectionState | undefined {
 	if (section !== undefined && subSection !== undefined) {
@@ -55,8 +57,16 @@ export default function ReportTextBody() {
 
 	return (
 		<Suspense>
-			<Box sx={{ width: "100%", overflowY: "auto" }}>
-				<ReportTextSubSectionDisplay subSection={getSubSection(section, subSection)} idx={subSection} />
+			<Box sx={{ display: "flex", flexDirection: "column", height: "100%", width: "100%" }}>
+				<Box sx={{ flex: "0 0 auto", p: 1 }}>
+					<NavigationHeader />
+				</Box>
+				<Container maxWidth="lg" sx={{ flex: "1 1 100%", display: "flex", alignItems: "center", overflowY: "auto" }}>
+					<ReportTextSubSectionDisplay subSection={getSubSection(section, subSection)} idx={subSection} />
+				</Container>
+				<Box sx={{ flex: "0 0 auto", p: 1 }}>
+					<NavigationFooter />
+				</Box>
 			</Box>
 		</Suspense>
 	);

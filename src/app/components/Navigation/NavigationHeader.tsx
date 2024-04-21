@@ -8,7 +8,8 @@ export default function NavigationHeader() {
 	return (
 		<Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
 			<NavigationButton
-				text="Music"
+				text="Music Player"
+				amber
 				onPress={() => {}}
 				tooltipContent={"Open the music player."}
 				tooltipPlacement="bottom"

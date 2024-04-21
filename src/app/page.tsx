@@ -1,10 +1,12 @@
 "use client";
 
 import { Box } from "@mui/material";
-import ReportTextBody from "./components/ReportTextBody/ReportTextBody";
 import { useSearchParams, useRouter } from "next/navigation";
 import React, { Suspense } from "react";
 import { handleNext, handlePrevious } from "./components/Navigation/handleNavigation";
+import Intro from "./components/Intro/Intro";
+import ReportTextBody from "./components/ReportTextBody/ReportTextBody";
+import IntroTutorial from "./components/Intro/IntroTutorial";
 
 export default function Home() {
 	const router = useRouter();
@@ -46,7 +48,9 @@ export default function Home() {
 					width: "100%",
 				}}
 			>
-				<ReportTextBody />
+				{/* <Intro /> */}
+				<IntroTutorial />
+				{/* <ReportTextBody /> */}
 			</Box>
 		</Suspense>
 	);
