@@ -3,7 +3,7 @@
 import { Box, Input } from "@mui/material";
 import ReportTextBody from "./components/ReportTextBody/ReportTextBody";
 import { useSearchParams, useRouter } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 import { handleNext, handlePrevious } from "./components/Navigation/handleNavigation";
 
 export default function Home() {
@@ -34,18 +34,20 @@ export default function Home() {
 	}, [section, subSection]); // eslint-disable-line
 
 	return (
-		<Box
-			sx={{
-				display: "flex",
-				flexDirection: "column",
-				justifyContent: "center",
-				alignItems: "center",
-				overflowY: "hidden",
-				height: "100%",
-				width: "100%",
-			}}
-		>
-			<ReportTextBody />
-		</Box>
+		<Suspense>
+			<Box
+				sx={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					alignItems: "center",
+					overflowY: "hidden",
+					height: "100%",
+					width: "100%",
+				}}
+			>
+				<ReportTextBody />
+			</Box>
+		</Suspense>
 	);
 }
