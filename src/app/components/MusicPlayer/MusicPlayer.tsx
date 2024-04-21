@@ -6,8 +6,6 @@ import { useSearchParams } from "next/navigation";
 import React from "react";
 import { WaveForm } from "wavesurfer-react";
 import { WaveSurfer } from "wavesurfer-react/dist/utils/createWavesurfer";
-// import AudioPlayer from "react-h5-audio-player";
-// import "react-h5-audio-player/lib/styles.css";
 
 export default function MusicPlayer() {
 	const searchParams = useSearchParams();
@@ -16,9 +14,11 @@ export default function MusicPlayer() {
 
 	const [currentSongIdx, setCurrentSongIdx] = React.useState<number | undefined>(undefined);
 	React.useEffect(() => {
-		if (currentSongIdx === undefined) {
-			const sectionParam = searchParams.get("section");
-			if (sectionParam !== null) {
+		const sectionParam = searchParams.get("section");
+		if (sectionParam === null) {
+			setCurrentSongIdx(0);
+		} else {
+			if (currentSongIdx === undefined) {
 				const sectionParamConversion = Number(sectionParam);
 				if (!isNaN(sectionParamConversion)) {
 					setCurrentSongIdx(sectionParamConversion);

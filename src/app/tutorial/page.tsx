@@ -6,6 +6,7 @@ import React from "react";
 import NavigationButton from "../components/Navigation/NavigationButton";
 import { ArrowBackOutlined, ArrowForwardOutlined, HelpOutlineOutlined, MusicNoteOutlined } from "@mui/icons-material";
 import Link from "next/link";
+import MusicPlayer from "../components/MusicPlayer/MusicPlayer";
 
 export default function Tutorial() {
 	const [step, setStep] = React.useState<number>(0);
@@ -23,16 +24,7 @@ export default function Tutorial() {
 		<Box sx={{ display: "flex", flexDirection: "column", height: "100%", width: "100%" }}>
 			<Box sx={{ flex: "0 0 auto" }}>
 				{step < 2 ? (
-					<Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
-						<NavigationButton
-							text="Music Player"
-							disabled
-							amber
-							onPress={() => {}}
-							tooltipContent={"Open the music player."}
-							tooltipPlacement="bottom"
-							startIcon={<MusicNoteOutlined />}
-						/>
+					<Box sx={{ display: "flex", flexDirection: "row-reverse", p: 1 }}>
 						<NavigationButton
 							text="About"
 							disabled
@@ -43,16 +35,7 @@ export default function Tutorial() {
 						/>
 					</Box>
 				) : step === 2 ? (
-					<Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
-						<NavigationButton
-							text="Music Player"
-							disabled
-							amber
-							onPress={() => {}}
-							tooltipContent={"Open the music player."}
-							tooltipPlacement="bottom"
-							startIcon={<MusicNoteOutlined />}
-						/>
+					<Box sx={{ display: "flex", flexDirection: "row-reverse", p: 1 }}>
 						<NavigationButton
 							text="About"
 							onPress={() => {}}
@@ -63,14 +46,7 @@ export default function Tutorial() {
 					</Box>
 				) : step === 3 ? (
 					<Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
-						<NavigationButton
-							text="Music Player"
-							amber
-							onPress={() => {}}
-							tooltipContent={"Open the music player."}
-							tooltipPlacement="bottom"
-							startIcon={<MusicNoteOutlined />}
-						/>
+						<MusicPlayer />
 						<NavigationButton
 							text="About"
 							onPress={() => {}}
@@ -235,15 +211,14 @@ export default function Tutorial() {
 											understand his music is to listen to it.
 										</Typography>
 										<Typography sx={{ display: "inline-block" }}>
-											There is a music player included with this project. You can find it by clicking the
+											There is a music player included with this project. You can find the&nbsp;
 										</Typography>
-										<Box sx={{ display: "inline-block", px: "0.25em" }}>
-											<MusicNoteOutlined sx={{ fontSize: "1em", color: theme.palette.amber.main }} />
-										</Box>
 										<Typography sx={{ display: "inline-block", color: theme.palette.amber.main }} variant="button">
 											Music Player
 										</Typography>
-										<Typography sx={{ display: "inline-block" }}>&nbsp;button at the top of the page.</Typography>
+										<Typography sx={{ display: "inline-block" }}>
+											&nbsp;in the top-right hand corner of the screen.
+										</Typography>
 									</span>
 									<Box sx={{ display: "flex", width: "100%" }} gap={1}>
 										<Button
