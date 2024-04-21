@@ -38,7 +38,7 @@ export default function ReportTextBody() {
       reportText
     );
 		if (normalizedSection === undefined) {
-			router.push("/?section=0&subSection=0");
+			router.push("/project?section=0&subSection=0");
 			return;
 		}
 

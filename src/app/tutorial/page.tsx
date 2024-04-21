@@ -5,6 +5,7 @@ import { Box, Button, Container, Step, StepContent, StepLabel, Stepper, Typograp
 import React from "react";
 import NavigationButton from "../components/Navigation/NavigationButton";
 import { ArrowBackOutlined, ArrowForwardOutlined, HelpOutlineOutlined, MusicNoteOutlined } from "@mui/icons-material";
+import Link from "next/link";
 
 export default function Tutorial() {
 	const [step, setStep] = React.useState<number>(0);
@@ -22,7 +23,16 @@ export default function Tutorial() {
 		<Box sx={{ display: "flex", flexDirection: "column", height: "100%", width: "100%" }}>
 			<Box sx={{ flex: "0 0 auto" }}>
 				{step < 2 ? (
-					<Box sx={{ display: "flex", flexDirection: "row-reverse", p: 1 }}>
+					<Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
+						<NavigationButton
+							text="Music Player"
+							disabled
+							amber
+							onPress={() => {}}
+							tooltipContent={"Open the music player."}
+							tooltipPlacement="bottom"
+							startIcon={<MusicNoteOutlined />}
+						/>
 						<NavigationButton
 							text="About"
 							disabled
@@ -90,15 +100,17 @@ export default function Tutorial() {
 										<Typography>The following is a tutorial on how to navigate the page.</Typography>
 									</span>
 									<Box sx={{ display: "flex", width: "100%" }} gap={1}>
-										<Button
-											variant="outlined"
-											size="small"
-											startIcon={<ArrowBackOutlined />}
-											onClick={() => handlePreviousStep()}
-											onTouchStart={() => handlePreviousStep()}
-										>
-											Previous
-										</Button>
+										<Link href="/">
+											<Button
+												variant="outlined"
+												size="small"
+												startIcon={<ArrowBackOutlined />}
+												onClick={() => {}}
+												onTouchStart={() => {}}
+											>
+												Previous
+											</Button>
+										</Link>
 										<Button
 											variant="outlined"
 											size="small"
@@ -137,8 +149,8 @@ export default function Tutorial() {
 											<ArrowForwardOutlined sx={{ fontSize: "1em" }} />
 										</Box>
 										<Typography sx={{ display: "inline-block" }}>
-											buttons to navigate the page. You can also use the [⇦] left and right [⇨] arrow keys on your
-											keyboard.
+											buttons at the bottom of the page to navigate between sections. You can also use the [⇦] left and
+											right [⇨] arrow keys on your keyboard.
 										</Typography>
 									</span>
 									<Box sx={{ display: "flex", width: "100%" }} gap={1}>
@@ -243,15 +255,17 @@ export default function Tutorial() {
 										>
 											Previous
 										</Button>
-										<Button
-											variant="outlined"
-											size="small"
-											endIcon={<ArrowForwardOutlined />}
-											onClick={() => handleNextStep()}
-											onTouchStart={() => handleNextStep()}
-										>
-											Proceed
-										</Button>
+										<Link href="/project">
+											<Button
+												variant="outlined"
+												size="small"
+												endIcon={<ArrowForwardOutlined />}
+												onClick={() => {}}
+												onTouchStart={() => {}}
+											>
+												Proceed
+											</Button>
+										</Link>
 									</Box>
 								</Box>
 							</StepContent>

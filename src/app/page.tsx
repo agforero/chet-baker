@@ -1,5 +1,6 @@
 import { ArrowForwardOutlined } from "@mui/icons-material";
 import { Box, Button, Container, Typography } from "@mui/material";
+import Link from "next/link";
 
 export default function Intro() {
 	return (
@@ -14,9 +15,11 @@ export default function Intro() {
 						A report by Maximos Forero.
 					</Typography>
 					<Box sx={{ display: "flex", flexDirection: "row-reverse" }}>
-						<Button color="amber" variant="outlined" endIcon={<ArrowForwardOutlined />}>
-							Proceed
-						</Button>
+						<Link href="/tutorial">
+							<Button color="amber" variant="outlined" endIcon={<ArrowForwardOutlined />}>
+								Proceed
+							</Button>
+						</Link>
 					</Box>
 				</Box>
 			</Box>
