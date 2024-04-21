@@ -1,5 +1,6 @@
 import theme from "@/app/theme";
 import { Box, Button, Fade, ThemeProvider, Tooltip } from "@mui/material";
+import React from "react";
 
 interface NavigationButtonProps {
 	text: string;
@@ -14,6 +15,11 @@ interface NavigationButtonProps {
 }
 
 export default function NavigationButton(props: NavigationButtonProps) {
+	const [tooltipOpen, setTooltipOpen] = React.useState<boolean | undefined>(props.tooltipOpen);
+	React.useEffect(() => {
+		setTooltipOpen(!!props.tooltipOpen);
+	}, [props.tooltipOpen]);
+
 	return (
 		<ThemeProvider theme={theme}>
 			<Tooltip
@@ -21,7 +27,7 @@ export default function NavigationButton(props: NavigationButtonProps) {
 					props.amber ? { tooltip: { className: "amberTooltip" }, arrow: { className: "amberTooltip" } } : undefined
 				}
 				title={!props.disabled ? props.tooltipContent : ""}
-				open={props.tooltipOpen}
+				open={tooltipOpen}
 				sx={{ fontSize: "24px" }}
 				TransitionComponent={Fade}
 				TransitionProps={{ timeout: 300 }}

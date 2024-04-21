@@ -43,7 +43,7 @@ theme.components = {
 				borderRadius: "1px",
 				fontSize: "16px",
 				textAlign: "center",
-				backgroundColor: "transparent",
+				backgroundColor: "black",
 				border: "1px solid white",
 				"&.amberTooltip": {
 					color: amber[200],
@@ -52,7 +52,7 @@ theme.components = {
 			},
 			arrow: {
 				"&:before": {
-					backgroundColor: "transparent",
+					backgroundColor: "black",
 					border: "1px solid white",
 				},
 				"&.amberTooltip": {

@@ -3,15 +3,20 @@
 import { HelpOutlineOutlined, MusicNoteOutlined } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import NavigationButton from "./NavigationButton";
+import React from "react";
+import MusicPlayer from "../MusicPlayer/MusicPlayer";
 
 export default function NavigationHeader() {
+	const [musicPlayerOpen, setMusicPlayerOpen] = React.useState<boolean>(false);
+
 	return (
 		<Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
 			<NavigationButton
 				text="Music Player"
 				amber
-				onPress={() => {}}
-				tooltipContent={"Open the music player."}
+				onPress={() => setMusicPlayerOpen(!musicPlayerOpen)}
+				tooltipOpen={musicPlayerOpen}
+				tooltipContent={<MusicPlayer />}
 				tooltipPlacement="bottom"
 				startIcon={<MusicNoteOutlined />}
 			/>
