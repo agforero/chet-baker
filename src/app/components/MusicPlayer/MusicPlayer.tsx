@@ -30,9 +30,11 @@ export default function MusicPlayer() {
 	const waveFormHeight = 25;
 	const waveFormWidth = 275;
 	const [wavesurfer, setWavesurfer] = React.useState<WaveSurfer | undefined>(undefined);
+	const [wavesurferLoading, setWavesurferLoading] = React.useState<boolean>(false);
 	React.useEffect(() => {
 		if (currentSongIdx !== undefined) {
-			setWavesurfer(undefined);
+			setWavesurferLoading(true);
+			wavesurfer?.destroy();
 			const newWavesurfer = WaveSurfer.create({
 				container: "#waveform",
 				waveColor: theme.palette.amber.main,
@@ -45,8 +47,14 @@ export default function MusicPlayer() {
 				url: allSongs[currentSongIdx],
 			});
 			setWavesurfer(newWavesurfer);
+			setWavesurferLoading(false);
 		}
 	}, [currentSongIdx]);
+
+	React.useEffect(() => {
+		console.log("wavesurferLoading:");
+		console.log(wavesurferLoading);
+	}, [wavesurferLoading]);
 
 	const [playing, setPlaying] = React.useState<boolean>(false);
 	const handlePlayPause = React.useCallback(() => {
@@ -100,6 +108,11 @@ export default function MusicPlayer() {
 				</Box>
 			</Box>
 			<Box sx={{ display: "flex", flexDirection: "column", ml: 0.5, width: `${waveFormWidth}` }}>
+				{wavesurferLoading && (
+					<Typography variant="caption" sx={{ color: theme.palette.amber.main }}>
+						Loading...
+					</Typography>
+				)}
 				<WaveForm id="waveform" />
 				{currentSongIdx !== undefined ? (
 					<Typography variant="caption" sx={{ color: theme.palette.amber.main }}>
