@@ -1,4 +1,4 @@
-import theme from "@/theme";
+import theme from "@/app/theme";
 import { ArrowForwardOutlined } from "@mui/icons-material";
 import { Box, Button, Container, ThemeProvider, Typography } from "@mui/material";
 

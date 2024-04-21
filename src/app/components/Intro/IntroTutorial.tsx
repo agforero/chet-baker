@@ -1,4 +1,4 @@
-import theme from "@/theme";
+import theme from "@/app/theme";
 import {
 	Box,
 	Button,
@@ -30,7 +30,7 @@ export default function IntroTutorial() {
 		<ThemeProvider theme={theme}>
 			<Box sx={{ display: "flex", flexDirection: "column", height: "100%", width: "100%" }}>
 				<Box sx={{ flex: "0 0 auto" }}>
-					{step === 0 ? (
+					{step < 2 ? (
 						<Box sx={{ display: "flex", flexDirection: "row-reverse", p: 1 }}>
 							<NavigationButton
 								text="About"
@@ -41,8 +41,17 @@ export default function IntroTutorial() {
 								endIcon={<HelpOutlineOutlined />}
 							/>
 						</Box>
-					) : step === 1 ? (
-						<Box sx={{ display: "flex", flexDirection: "row-reverse", p: 1 }}>
+					) : step === 2 ? (
+						<Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
+							<NavigationButton
+								text="Music Player"
+								disabled
+								amber
+								onPress={() => {}}
+								tooltipContent={"Open the music player."}
+								tooltipPlacement="bottom"
+								startIcon={<MusicNoteOutlined />}
+							/>
 							<NavigationButton
 								text="About"
 								onPress={() => {}}
@@ -51,7 +60,7 @@ export default function IntroTutorial() {
 								endIcon={<HelpOutlineOutlined />}
 							/>
 						</Box>
-					) : step === 2 ? (
+					) : step === 3 ? (
 						<Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
 							<NavigationButton
 								text="Music Player"
@@ -81,6 +90,40 @@ export default function IntroTutorial() {
 							<Step>
 								<StepLabel>
 									<span style={{ display: "flex", justifyContent: "space-between" }}>
+										<span>Tutorial</span>
+									</span>
+								</StepLabel>
+								<StepContent>
+									<Box sx={{ display: "flex", flexDirection: "column" }} gap={2}>
+										<span style={{ color: "white" }}>
+											<Typography>The following is a tutorial on how to navigate the page.</Typography>
+										</span>
+										<Box sx={{ display: "flex", width: "100%" }} gap={1}>
+											<Button
+												variant="outlined"
+												size="small"
+												startIcon={<ArrowBackOutlined />}
+												onClick={() => handlePreviousStep()}
+												onTouchStart={() => handlePreviousStep()}
+											>
+												Previous
+											</Button>
+											<Button
+												variant="outlined"
+												size="small"
+												endIcon={<ArrowForwardOutlined />}
+												onClick={() => handleNextStep()}
+												onTouchStart={() => handleNextStep()}
+											>
+												Next
+											</Button>
+										</Box>
+									</Box>
+								</StepContent>
+							</Step>
+							<Step>
+								<StepLabel>
+									<span style={{ display: "flex", justifyContent: "space-between" }}>
 										<span>Navigate between pages</span>
 										<span>◱ ◲</span>
 									</span>
@@ -103,11 +146,20 @@ export default function IntroTutorial() {
 												<ArrowForwardOutlined sx={{ fontSize: "1em" }} />
 											</Box>
 											<Typography sx={{ display: "inline-block" }}>
-												&nbsp;buttons to navigate the page. You can also use the [⇦] left and right [⇨] arrow keys on
-												your keyboard.
+												buttons to navigate the page. You can also use the [⇦] left and right [⇨] arrow keys on your
+												keyboard.
 											</Typography>
 										</span>
-										<Box>
+										<Box sx={{ display: "flex", width: "100%" }} gap={1}>
+											<Button
+												variant="outlined"
+												size="small"
+												startIcon={<ArrowBackOutlined />}
+												onClick={() => handlePreviousStep()}
+												onTouchStart={() => handlePreviousStep()}
+											>
+												Previous
+											</Button>
 											<Button
 												variant="outlined"
 												size="small"
@@ -180,8 +232,11 @@ export default function IntroTutorial() {
 												understand his music is to listen to it.
 											</Typography>
 											<Typography sx={{ display: "inline-block" }}>
-												There is a music player included with this project. You can find it by clicking the&nbsp;
+												There is a music player included with this project. You can find it by clicking the
 											</Typography>
+											<Box sx={{ display: "inline-block", px: "0.25em" }}>
+												<MusicNoteOutlined sx={{ fontSize: "1em", color: theme.palette.amber.main }} />
+											</Box>
 											<Typography sx={{ display: "inline-block", color: theme.palette.amber.main }} variant="button">
 												Music Player
 											</Typography>
@@ -217,6 +272,7 @@ export default function IntroTutorial() {
 					<NavigationButton
 						text="Previous"
 						onPress={() => {}}
+						disabled={step < 1}
 						tooltipContent={""}
 						tooltipPlacement="top"
 						startIcon={<ArrowBackOutlined />}
@@ -224,6 +280,7 @@ export default function IntroTutorial() {
 					<NavigationButton
 						text="Next"
 						onPress={() => {}}
+						disabled={step < 1}
 						tooltipContent={""}
 						tooltipPlacement="top"
 						endIcon={<ArrowForwardOutlined />}

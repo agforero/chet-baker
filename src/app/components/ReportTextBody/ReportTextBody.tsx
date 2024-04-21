@@ -47,7 +47,7 @@ export default function ReportTextBody() {
 			reportText[normalizedSection].subSections,
 		);
 		if (normalizedSubSection === undefined) {
-			router.push(`/?section=${normalizedSection}&subSection=0`);
+			router.push(`/project?section=${normalizedSection}&subSection=0`);
 			return;
 		}
 

@@ -11,10 +11,10 @@ export const handlePrevious = (section: number, subSection: number, router: AppR
 	} else if (subSection === 0) {
 		const prevSectionIdx = section - 1;
 		const prevSubSectionIdx = reportText[prevSectionIdx].subSections.length - 1;
-		router.push(`/?section=${prevSectionIdx}&subSection=${prevSubSectionIdx}`);
+		router.push(`/project?section=${prevSectionIdx}&subSection=${prevSubSectionIdx}`);
 	} else {
 		const prevSubSectionIdx = subSection - 1;
-		router.push(`/?section=${section}&subSection=${prevSubSectionIdx}`);
+		router.push(`/project?section=${section}&subSection=${prevSubSectionIdx}`);
 	}
 };
 
@@ -24,9 +24,9 @@ export const handleNext = (section: number, subSection: number, router: AppRoute
 	} else if (subSection === reportText[section].subSections.length - 1) {
 		const nextSectionIdx = section + 1;
 		const nextSubSectionIdx = 0;
-		router.push(`/?section=${nextSectionIdx}&subSection=${nextSubSectionIdx}`);
+		router.push(`/project?section=${nextSectionIdx}&subSection=${nextSubSectionIdx}`);
 	} else {
 		const nextSubSectionIdx = subSection + 1;
-		router.push(`/?section=${section}&subSection=${nextSubSectionIdx}`);
+		router.push(`/project?section=${section}&subSection=${nextSubSectionIdx}`);
 	}
 };

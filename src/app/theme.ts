@@ -1,4 +1,6 @@
-import { createTheme } from "@mui/material";
+"use client";
+
+import { createTheme } from "@mui/material/styles";
 import { amber } from "@mui/material/colors";
 
 declare module "@mui/material/styles" {

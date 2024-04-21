@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Box, Container } from "@mui/material";
-import NavigationFooter from "./components/Navigation/NavigationFooter";
-import NavigationHeader from "./components/Navigation/NavigationHeader";
+import { ThemeProvider } from "@mui/material/styles";
 import { Suspense } from "react";
+import theme from "./theme";
 
 export const metadata: Metadata = {
 	title: "Chet Baker's Fame and Impact",
@@ -30,10 +29,7 @@ export default function RootLayout({
 				}}
 			>
 				<Suspense>
-					{/* <Box sx={{ flex: "0 0 auto", p: 1 }}>
-						<NavigationHeader />
-					</Box> */}
-					{children}
+					<ThemeProvider theme={theme}>{children}</ThemeProvider>
 				</Suspense>
 			</body>
 		</html>

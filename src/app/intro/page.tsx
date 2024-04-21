@@ -3,7 +3,7 @@ import { Box, Button, Container, Typography } from "@mui/material";
 
 export default function Intro() {
 	return (
-		<Container sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+		<Container>
 			<Box sx={{ width: "100%", overflowY: "auto" }}>
 				<Box sx={{ display: "flex", flexDirection: "column", width: "100%", overflowY: "auto" }} gap={3}>
 					<Typography>Welcome to</Typography>

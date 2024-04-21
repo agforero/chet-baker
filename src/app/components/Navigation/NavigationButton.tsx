@@ -1,4 +1,4 @@
-import theme from "@/theme";
+import theme from "@/app/theme";
 import { Box, Button, Fade, ThemeProvider, Tooltip } from "@mui/material";
 
 interface NavigationButtonProps {
