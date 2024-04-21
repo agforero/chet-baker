@@ -1,6 +1,11 @@
+export interface ReportTextImageState {
+	src: string;
+	caption: string;
+}
+
 export interface ReportTextSubSectionState {
 	text?: string;
-	image?: string;
+	image?: ReportTextImageState;
 	video?: string;
 	hideSectionTitle?: boolean;
 }

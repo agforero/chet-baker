@@ -1,21 +1,29 @@
-import { Box } from "@mui/material";
+import { ReportTextImageState } from "@/app/data/reportTextInterface";
+import theme from "@/app/theme";
+import { Box, Typography } from "@mui/material";
+import LazyLoad from "react-lazy-load";
 import Markdown from "react-markdown";
 
 interface TextAndImageProps {
 	text?: string;
-	image: string;
+	image: ReportTextImageState;
 	idx: number;
 }
 
 export default function TextAndImage(props: TextAndImageProps) {
 	return (
 		<Box sx={{ display: "flex", flexDirection: props.idx % 2 ? "row" : "row-reverse" }} gap={4}>
-			<Box sx={{ flex: "0 0 auto" }}>
-				<img
-					style={{ height: "600px", width: "auto", border: "5px solid white" }}
-					src={`/${props.image}`}
-					alt={props.image}
-				/>
+			<Box sx={{ flex: "0 0 auto", display: "flex", flexDirection: "column" }} gap={1}>
+				<LazyLoad threshold={0.95}>
+					<img
+						style={{ height: "600px", width: "auto", border: "5px solid white" }}
+						src={`/${props.image.src}`}
+						alt={props.image.caption}
+					/>
+				</LazyLoad>
+				<Typography variant="subtitle2" sx={{ color: theme.palette.primary.main }}>
+					{props.image.caption}
+				</Typography>
 			</Box>
 			<Box
 				sx={{
