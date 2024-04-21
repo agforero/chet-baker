@@ -16,7 +16,7 @@ export default function TextAndImage(props: TextAndImageProps) {
 			<Box sx={{ flex: "0 0 auto", display: "flex", flexDirection: "column" }} gap={1}>
 				<LazyLoad threshold={0.95}>
 					<img
-						style={{ height: "600px", width: "auto", border: "5px solid white" }}
+						style={{ height: "auto", width: "400px", border: "5px solid white" }}
 						src={`/${props.image.src}`}
 						alt={props.image.caption}
 					/>

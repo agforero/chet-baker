@@ -32,6 +32,7 @@ export default function MusicPlayer() {
 	const [wavesurfer, setWavesurfer] = React.useState<WaveSurfer | undefined>(undefined);
 	React.useEffect(() => {
 		if (currentSongIdx !== undefined) {
+			setWavesurfer(undefined);
 			const newWavesurfer = WaveSurfer.create({
 				container: "#waveform",
 				waveColor: theme.palette.amber.main,
