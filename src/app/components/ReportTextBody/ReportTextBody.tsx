@@ -17,7 +17,7 @@ function getSubSection(section?: number, subSection?: number): ReportTextSubSect
 }
 
 // if this returns undefined, push 0 to router
-function normalizeSearchParam(searchParam: string, withinArray: Array<any>): number | undefined {
+function normalizeSearchParam(searchParam: string | undefined, withinArray: Array<any>): number | undefined {
 	const conversion = Number(searchParam);
 	return !isNaN(conversion) && conversion < withinArray.length ? conversion : undefined;
 }
@@ -32,7 +32,7 @@ export default function ReportTextBody() {
 	React.useEffect(() => {
 		// prettier-ignore
 		const normalizedSection = normalizeSearchParam(
-      searchParams.get("section") || "", 
+      searchParams.get("section") || undefined,
       reportText
     );
 		if (normalizedSection === undefined) {
@@ -41,7 +41,7 @@ export default function ReportTextBody() {
 		}
 
 		const normalizedSubSection = normalizeSearchParam(
-			searchParams.get("subSection") || "",
+			searchParams.get("subSection") || undefined,
 			reportText[normalizedSection].subSections,
 		);
 		if (normalizedSubSection === undefined) {

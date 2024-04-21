@@ -4,7 +4,6 @@ import "./globals.css";
 import { Box, Container } from "@mui/material";
 import NavigationFooter from "./components/Navigation/NavigationFooter";
 import NavigationHeader from "./components/Navigation/NavigationHeader";
-import { Suspense } from "react";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["latin"] });
 
@@ -19,33 +18,31 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<Suspense>
-			<html lang="en">
-				<body
-					className={merriweather.className}
-					style={{
-						display: "flex",
-						flexDirection: "column",
-						height: "100vh",
-						width: "100vw",
-						overflowY: "hidden",
-						backgroundImage: "url('background.png')",
-						backgroundRepeat: "no-repeat",
-						backgroundAttachment: "fixed",
-						backgroundPosition: "center",
-					}}
-				>
-					<Box sx={{ flex: "0 0 auto", p: 1 }}>
-						<NavigationHeader />
-					</Box>
-					<Container maxWidth="lg" sx={{ flex: "1 1 100%", height: "100%", width: "100%", overflowY: "hidden" }}>
-						{children}
-					</Container>
-					<Box sx={{ flex: "0 0 auto", p: 1 }}>
-						<NavigationFooter />
-					</Box>
-				</body>
-			</html>
-		</Suspense>
+		<html lang="en">
+			<body
+				className={merriweather.className}
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					height: "100vh",
+					width: "100vw",
+					overflowY: "hidden",
+					backgroundImage: "url('background.png')",
+					backgroundRepeat: "no-repeat",
+					backgroundAttachment: "fixed",
+					backgroundPosition: "center",
+				}}
+			>
+				<Box sx={{ flex: "0 0 auto", p: 1 }}>
+					<NavigationHeader />
+				</Box>
+				<Container maxWidth="lg" sx={{ flex: "1 1 100%", height: "100%", width: "100%", overflowY: "hidden" }}>
+					{children}
+				</Container>
+				<Box sx={{ flex: "0 0 auto", p: 1 }}>
+					<NavigationFooter />
+				</Box>
+			</body>
+		</html>
 	);
 }
