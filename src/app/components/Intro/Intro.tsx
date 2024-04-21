@@ -5,7 +5,7 @@ import { Box, Button, Container, ThemeProvider, Typography } from "@mui/material
 export default function Intro() {
 	return (
 		<ThemeProvider theme={theme}>
-			<Container maxWidth="lg">
+			<Container>
 				<Box sx={{ width: "100%", overflowY: "auto" }}>
 					<Box sx={{ display: "flex", flexDirection: "column", width: "100%", overflowY: "auto" }} gap={3}>
 						<Typography>Welcome to</Typography>

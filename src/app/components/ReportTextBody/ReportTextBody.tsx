@@ -61,7 +61,7 @@ export default function ReportTextBody() {
 				<Box sx={{ flex: "0 0 auto", p: 1 }}>
 					<NavigationHeader />
 				</Box>
-				<Container maxWidth="lg" sx={{ flex: "1 1 100%", display: "flex", alignItems: "center", overflowY: "auto" }}>
+				<Container sx={{ flex: "1 1 100%", display: "flex", alignItems: "center", overflowY: "auto" }}>
 					<ReportTextSubSectionDisplay subSection={getSubSection(section, subSection)} idx={subSection} />
 				</Container>
 				<Box sx={{ flex: "0 0 auto", p: 1 }}>

@@ -30,7 +30,7 @@ export default function NavigationButton(props: NavigationButtonProps) {
 			>
 				<span>
 					<Button
-						color={!props.amber ? "white" : "amber"}
+						color={!props.amber ? "primary" : "amber"}
 						variant="outlined"
 						startIcon={props.startIcon ? props.startIcon : undefined}
 						endIcon={props.endIcon ? props.endIcon : undefined}

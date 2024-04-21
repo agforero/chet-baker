@@ -3,36 +3,33 @@ import { amber } from "@mui/material/colors";
 
 declare module "@mui/material/styles" {
 	interface Palette {
-		white: Palette["primary"];
 		amber: Palette["primary"];
 	}
 
 	interface PaletteOptions {
-		white?: PaletteOptions["primary"];
 		amber?: PaletteOptions["primary"];
 	}
 }
 
 declare module "@mui/material/Button" {
 	interface ButtonPropsColorOverrides {
-		white: true;
 		amber: true;
 	}
 }
 
 const theme = createTheme({
 	palette: {
-		white: {
-			main: "#fff",
-			light: "#fff",
-			dark: "#fff",
-			contrastText: "#000",
-		},
 		amber: {
 			main: amber[200],
 			light: amber[50],
 			dark: amber[500],
-			contrastText: "black",
+			contrastText: "#000",
+		},
+		primary: {
+			main: "#fff",
+			light: "#fff",
+			dark: "#fff",
+			contrastText: "#000",
 		},
 	},
 });
@@ -41,6 +38,7 @@ theme.components = {
 	MuiTooltip: {
 		styleOverrides: {
 			tooltip: {
+				borderRadius: "1px",
 				fontSize: "16px",
 				textAlign: "center",
 				backgroundColor: "transparent",
@@ -60,6 +58,47 @@ theme.components = {
 						border: `1px solid ${amber[200]}`,
 					},
 				},
+			},
+		},
+	},
+	MuiStepConnector: {
+		styleOverrides: {
+			line: {
+				borderColor: theme.palette.primary.light,
+			},
+		},
+	},
+	MuiStepLabel: {
+		styleOverrides: {
+			labelContainer: {
+				"& .MuiStepLabel-label": {
+					fontSize: "22px",
+					color: "white !important",
+				},
+			},
+			active: {
+				"& .MuiStepLabel-label": {
+					fontSize: "22px",
+					color: "white !important",
+				},
+			},
+			iconContainer: {
+				"& .MuiSvgIcon-root": {
+					color: "white",
+					"& .MuiStepIcon-text": {
+						fontSize: "16px",
+					},
+				},
+			},
+		},
+	},
+	MuiStepContent: {
+		styleOverrides: {
+			root: {
+				borderLeft: "1px solid white",
+			},
+			last: {
+				borderLeft: "none",
 			},
 		},
 	},
