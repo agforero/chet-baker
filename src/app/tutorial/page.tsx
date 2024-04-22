@@ -49,7 +49,7 @@ export default function Tutorial() {
 						<NavigationButton text="About" disabled onPress={() => {}} endIcon={<HelpOutlineOutlined />} />
 					</Box>
 				) : step === 2 ? (
-					<Box sx={{ display: "flex", flexDirection: "row-reverse", p: 1 }}>
+					<Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
 						<MusicPlayerDummy color="black" />
 						<NavigationButton text="About" onPress={() => {}} endIcon={<HelpOutlineOutlined />} />
 					</Box>
