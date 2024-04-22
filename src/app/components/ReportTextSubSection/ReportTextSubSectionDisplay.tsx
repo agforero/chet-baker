@@ -13,17 +13,41 @@ interface ReportTextSubSectionDisplayProps {
 export default function ReportTextSubSectionDisplay(props: ReportTextSubSectionDisplayProps) {
 	return !!props.subSection ? (
 		!!props.subSection.image ? (
-			<Box sx={{ width: "100%" }}>
+			<Box sx={{ width: "100%", overflowY: "auto" }}>
 				<TextAndImage text={props.subSection.text} image={props.subSection.image} idx={props.idx || 0} />
 			</Box>
 		) : !!props.subSection.video ? (
-			<Box sx={{ width: "100%" }}>
+			<Box sx={{ width: "100%", overflowY: "auto" }}>
 				<TextAndVideo text={props.subSection.text} embedId={props.subSection.video} idx={props.idx || 0} />
 			</Box>
 		) : (
-			<span style={{ fontFamily: "inherit" }}>
-				<Markdown>{props.subSection.text}</Markdown>
-			</span>
+			<Box
+				sx={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					height: "100%",
+					width: "100%",
+					position: "relative",
+				}}
+			>
+				<span
+					id="markdownContainer"
+					style={{
+						left: "50%",
+						translate: "-50% 0",
+						position: "absolute",
+
+						maxHeight: "100%",
+						width: "100%",
+						overflowX: "hidden",
+						overflowY: "auto",
+						wordBreak: "break-word",
+					}}
+				>
+					<Markdown>{props.subSection.text}</Markdown>
+				</span>
+			</Box>
 		)
 	) : (
 		<React.Fragment />
