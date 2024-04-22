@@ -41,16 +41,12 @@ export default function NavigationFooter() {
 					text="Previous"
 					onPress={() => handlePrevious(section, subSection, router)}
 					disabled={previousDisabled}
-					tooltipContent={""}
-					tooltipPlacement="top"
 					startIcon={<ArrowBackOutlined />}
 				/>
 				<NavigationButton
 					text="Next"
 					onPress={() => handleNext(section, subSection, router)}
 					disabled={nextDisabled}
-					tooltipContent={""}
-					tooltipPlacement="top"
 					endIcon={<ArrowForwardOutlined />}
 				/>
 			</Box>
