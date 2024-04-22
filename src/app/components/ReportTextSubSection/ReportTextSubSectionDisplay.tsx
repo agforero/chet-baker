@@ -14,11 +14,21 @@ export default function ReportTextSubSectionDisplay(props: ReportTextSubSectionD
 	return !!props.subSection ? (
 		!!props.subSection.image ? (
 			<Box sx={{ width: "100%", overflowY: "auto" }}>
-				<TextAndImage text={props.subSection.text} image={props.subSection.image} idx={props.idx || 0} />
+				<TextAndImage
+					key={!!props.subSection ? `${props.subSection.text}-${props.idx}` : undefined}
+					text={props.subSection.text}
+					image={props.subSection.image}
+					idx={props.idx || 0}
+				/>
 			</Box>
 		) : !!props.subSection.video ? (
 			<Box sx={{ width: "100%", overflowY: "auto" }}>
-				<TextAndVideo text={props.subSection.text} embedId={props.subSection.video} idx={props.idx || 0} />
+				<TextAndVideo
+					key={!!props.subSection ? `${props.subSection.text}-${props.idx}` : undefined}
+					text={props.subSection.text}
+					embedId={props.subSection.video}
+					idx={props.idx || 0}
+				/>
 			</Box>
 		) : (
 			<Box
