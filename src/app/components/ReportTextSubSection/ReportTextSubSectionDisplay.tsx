@@ -47,12 +47,12 @@ export default function ReportTextSubSectionDisplay(props: ReportTextSubSectionD
 						left: "50%",
 						translate: "-50% 0",
 						position: "absolute",
-
 						maxHeight: "100%",
 						width: "100%",
 						overflowX: "hidden",
 						overflowY: "auto",
 						wordBreak: "break-word",
+						padding: "0px 10px",
 					}}
 				>
 					<Markdown>{props.subSection.text}</Markdown>
