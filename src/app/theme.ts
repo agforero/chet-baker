@@ -106,8 +106,11 @@ theme.components = {
 	},
 	MuiTypography: {
 		styleOverrides: {
-			root: {
+			body1: {
 				fontSize: "18px",
+			},
+			subtitle2: {
+				fontSize: "16px",
 			},
 		},
 	},
