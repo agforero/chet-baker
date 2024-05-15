@@ -112,6 +112,9 @@ theme.components = {
 			subtitle2: {
 				fontSize: "16px",
 			},
+			caption: {
+				fontSize: "16px",
+			},
 		},
 	},
 };
