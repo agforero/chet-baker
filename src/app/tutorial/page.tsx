@@ -66,7 +66,7 @@ export default function Tutorial() {
 				sx={{ flex: "1 1 100%", display: "flex", flexDirection: "column", justifyContent: "center", height: "100%" }}
 			>
 				<Container>
-					<Stepper activeStep={step} orientation="vertical">
+					<Stepper activeStep={step} orientation="vertical" id="tutorial">
 						<Step>
 							<StepLabel>
 								<span style={{ display: "flex", justifyContent: "space-between" }}>

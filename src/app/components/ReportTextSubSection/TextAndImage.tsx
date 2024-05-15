@@ -37,7 +37,7 @@ export default function TextAndImage(props: TextAndImageProps) {
 			>
 				<span
 					style={{
-						maxWidth: "400px",
+						maxWidth: "600px",
 						fontFamily: "inherit",
 						textAlign: props.idx % 2 ? "left" : "right",
 					}}

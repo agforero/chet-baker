@@ -44,7 +44,7 @@ export default function TextAndVideo(props: TextAndVideoProps) {
 			>
 				<span
 					style={{
-						maxWidth: "400px",
+						maxWidth: "600px",
 						fontFamily: "inherit",
 						textAlign: props.idx % 2 ? "left" : "right",
 					}}

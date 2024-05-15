@@ -104,6 +104,13 @@ theme.components = {
 			},
 		},
 	},
+	MuiTypography: {
+		styleOverrides: {
+			root: {
+				fontSize: "18px",
+			},
+		},
+	},
 };
 
 export default theme;
